@@ -4,10 +4,29 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                                   controllers.HomeController.index
-GET     /explore                            controllers.HomeController.explore
-GET     /tutorial                           controllers.HomeController.tutorial
+GET         /                    controllers.HomeController.index
+GET         /explore             controllers.HomeController.explore
+GET         /tutorial            controllers.HomeController.tutorial
+
+# user custom route
+
+GET         /foo                 controllers.HelloController.getFoo
+GET         /echo                controllers.HelloController.echo
+GET         /echo2               controllers.HelloController.echo2
+GET         /index2              controllers.HelloController.index2
+GET         /todo                controllers.HelloController.todo
+
+# complex
++nocsrf
+
+GET         /clients/:id         controllers.RouteController.show(id: Long)
+POST        /json/:id            controllers.RouteController.json(id:Long)
+
+#->         /api                 conf.my_route
+
+GET         /action/foo          controllers.ActionController.index
+
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
